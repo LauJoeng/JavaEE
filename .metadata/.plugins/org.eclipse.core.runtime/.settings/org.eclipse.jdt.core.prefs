@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=E\:/eclipseForJavaEE/eclipse/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=D\:/jdk/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Users/Administrator/.p2/pool/plugins/org.junit_4.12.0.v201504281640/
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/Administrator/.m2/repository
+org.eclipse.jdt.core.classpathVariable.TomcatServer=E\:/Tomcat/lib
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.userLibrary.Tomcat\ Server=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="E\:/Tomcat/lib/annotations-api.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/catalina.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/catalina-ant.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/catalina-ha.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/catalina-storeconfig.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/catalina-tribes.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/ecj-4.6.3.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/el-api.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/jasper.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/jasper-el.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/jsp-api.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/servlet-api.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-api.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-coyote.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-dbcp.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-i18n-es.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-i18n-fr.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-i18n-ja.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-jdbc.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-jni.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-util.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-util-scan.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/tomcat-websocket.jar"/>\r\n\t<archive path\="E\:/Tomcat/lib/websocket-api.jar"/>\r\n</userlibrary>\r\n
