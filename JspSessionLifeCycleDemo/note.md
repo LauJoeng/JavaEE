@@ -47,5 +47,7 @@ Tomcat默认session超时时间为30分钟
 
 <h5>application对象</h5>
 
-![]()
+![](https://github.com/xuedingedeyang/Image/blob/master/application.png?raw=true)
+
+![](https://github.com/xuedingedeyang/Image/blob/master/applicationmethod.png?raw=true)
 
