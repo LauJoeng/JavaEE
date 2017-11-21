@@ -19,7 +19,7 @@
 		session.setAttribute("age","23");
 		
 		//设置当前session最大生成期限，单位是秒
-		session.setMaxInactiveInterval(10);
+		//session.setMaxInactiveInterval(10);
 	%>
 	Session创建时间：<%=sdf.format(d) %><br>
 	Session的ID编号:<%=session.getId() %><br>

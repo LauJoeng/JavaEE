@@ -1,3 +1,9 @@
+CONTENT_ASSIST_BACKGROUND_COLOR=52,57,61
+CONTENT_ASSIST_FOREGROUND_COLOR=238,238,238
+content_assist_parameters_background=52,57,61
+content_assist_parameters_foreground=238,238,238
+content_assist_proposals_background=52,57,61
+content_assist_proposals_foreground=238,238,238
 eclipse.preferences.version=1
 fontPropagated=true
 java_bracket=248,225,170
@@ -18,6 +24,7 @@ org.eclipse.wst.jsdt.internal.ui.navigator.layout=1
 org.eclipse.wst.jsdt.ui.editor.tab.width=
 org.eclipse.wst.jsdt.ui.formatterprofiles.version=11
 org.eclipse.wst.jsdt.ui.javadoclocations.migrated=true
+overriddenByCSS=,CONTENT_ASSIST_BACKGROUND_COLOR,CONTENT_ASSIST_FOREGROUND_COLOR,content_assist_parameters_background,content_assist_parameters_foreground,content_assist_proposals_background,content_assist_proposals_foreground,
 proposalOrderMigrated=true
 semanticHighlighting.localVariable.bold=false
 semanticHighlighting.localVariable.color=248,225,170
