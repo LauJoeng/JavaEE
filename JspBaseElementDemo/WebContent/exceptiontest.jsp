@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" errorPage="exception.jsp"
-    pageEncoding="UTF-8"  %><!-- 这个属性的意义是当发生异常时交给哪个页面处理 -->
+    pageEncoding="UTF-8"  %><!-- erroPage这个属性的意义是当发生异常时交给哪个页面处理 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
