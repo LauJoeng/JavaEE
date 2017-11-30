@@ -10,11 +10,3 @@ Cookie对象
 session与Cookie对比
 
 ![](https://img3.mukewang.com/5a18e5650001633612800720.jpg)
-
-include指令与include动作的区别
-
-![](https://img.mukewang.com/5a1a320c0001e83812800720.jpg)
-
-forward动作(相当于request.getDispatcher("name.jsp").forward(response,request);
-
-![](https://img1.mukewang.com/5a1ab4c20001ec1312800720.jpg)
