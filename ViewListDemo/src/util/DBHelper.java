@@ -8,10 +8,10 @@ public class DBHelper {
 	private static String url = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false";
 	private static String username="root";
 	private static String password="1909227160";
-	
-	private static Connection conn = null; 
-	
-	static 
+
+	private static Connection conn = null;
+
+	static
 	{
 		try
 		{
@@ -23,7 +23,7 @@ public class DBHelper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static Connection getConnection() throws Exception
 	{
 		if(conn==null)
@@ -33,7 +33,7 @@ public class DBHelper {
 		}
 		return conn;
 	}
-	
+
 	public static void main(String[] args) {
 		try {
 			Connection conn = DBHelper.getConnection();
