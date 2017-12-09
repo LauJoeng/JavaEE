@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>AsyncServlet</servlet-name>
+        <servlet-class>com.yang.AsyncServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AsyncServlet</servlet-name>
+        <url-pattern>/com.yang.AsyncServlet</url-pattern>
+    </servlet-mapping>
+    <!--<filter>
+        <filter-name>FirstFilter</filter-name>
+        <filter-class>FirstFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FirstFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>&lt;!&ndash;此处相等才能生成过滤器链&ndash;&gt;
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FirstFilter</filter-name>
+        <url-pattern>/main.jsp</url-pattern>&lt;!&ndash;此处相等才能生成过滤器链&ndash;&gt;
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>-->
+<!--
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
+    <filter>
+        <filter-name>ErrorFilter</filter-name>
+        <filter-class>ErrorFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ErrorFilter</filter-name>
+        <url-pattern>/error.jsp</url-pattern>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>-->
+    <!--<filter>
+        <filter-name>SecondFilter</filter-name>
+        <filter-class>SecondFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecondFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </filter-mapping>-->
+</web-app>
