@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         <tr>
           <td class="title">自我介绍：</td>
-          <td class="content">&nbsp;<jsp:getProperty name="regUser" property="introduce"/></td>
+          <td class="content">&nbsp;<%=regUser.getIntroduce()%></td>
         </tr>
         <tr>
           <td class="title">是否介绍协议：</td>

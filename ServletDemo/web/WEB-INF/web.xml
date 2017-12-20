@@ -44,4 +44,20 @@
         <servlet-name>RegServlet</servlet-name>
         <url-pattern>/servlet/RegServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>getInitParameterServlet</servlet-name>
+        <servlet-class>servlet.GetInitParameterServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getInitParameterServlet</servlet-name>
+        <url-pattern>/servlet/GetInitParameterServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

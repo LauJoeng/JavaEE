@@ -39,14 +39,15 @@
                     ItemsDAO itemsDAO = new ItemsDAO();
                     ArrayList<Items>list = itemsDAO.getAllItems();
                     if(list!=null&&list.size()>0)
-                    {  for(int i=0;i<list.size();i++)
+                    {
+                        for(int i=0;i<list.size();i++)
                         {
                         Items items = list.get(i);
                 %>
                 <div>
                     <dl>
                         <dt>
-                            <a href="details.jsp?id=<%=items.getId()%>"><img src="images/<%= items.getPicture()%>" width="120" height="100" border="1"/></a>
+                            <a href="details2.jsp?id=<%=items.getId()%>"><img src="images/<%= items.getPicture()%>" width="120" height="100" border="1"/></a>
                         </dt>
                         <dd class="dd_name"><%=items.getName()%></dd>
                         <dd class="dd_city"><%=items.getCity()%>&nbsp;&nbsp;价格:￥<%=items.getPrice()%></dd>
