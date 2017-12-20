@@ -2,7 +2,6 @@ package servlet;
 
 import java.util.Date;
 
-//�û�ʵ����
 public class Users {
 
 	private String username; //

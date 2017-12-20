@@ -2,56 +2,70 @@ package servlet;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main{
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String[] s1 = sc.nextLine().split(" ");
-        int[] a1 = new int[s1[0].length()];
-        int[] a2 = new int[s1[1].length()];
-        for (int i = 1; i <= s1[0].length(); i++) {
-            if (s1[0].charAt(i - 1) >= '0' && s1[0].charAt(i - 1) <= '9') {
-                a1[i] = (int) s1[0].charAt(i - 1);
-            } else {
+        String s = sc.nextLine();
+        String sa = s.substring(0,s.indexOf(" "));
+        String sb = s.substring(s.indexOf(" ")+1,s.length());
+        boolean flag = false;
+        for (int i=0;i < sa.length();i++){
+            if (!(sa.charAt(i) >= '0' && sa.charAt(i) <= '9')){
                 System.out.println("error");
-                return;
+                flag = true;
+                break;
             }
         }
-        for (int i = 1; i <= s1[1].length(); i++) {
-            if (s1[1].charAt(i - 1) >= '0' && s1[1].charAt(i - 1) <= '9') {
-                a2[i] = (int) s1[1].charAt(i - 1);
-            } else {
+        if (flag){
+            return;
+        }
+        for (int i=0;i < sb.length();i++){
+            if (!(sb.charAt(i) >= '0' && sb.charAt(i) <='9')){
                 System.out.println("error");
-                return;
+                flag = true;
+                break;
             }
         }
-        int[] a3 = new int[a1.length > a2.length ? a1.length : a2.length];
-        for (int i = a3.length; i > 0; i--) {
-            if (i > a1.length) {
-                a3[i] += a2[i];
-                if (a3[i] >= 10) {
-                    a3[i - 1] += 1;
-                    a3[i] %= 10;
-                }
-            } else if (i > a2.length) {
-                a3[i] += a1[i];
-                if (a3[i] >= 10) {
-                    a3[i - 1] += 1;
-                    a3[i] %= 10;
-                } else {
-                    a3[i] += a1[i];
-                    a3[i] += a2[i];
-                    if (a3[i] >= 10) {
-                        a3[i - 1] += 1;
-                        a3[i] %= 10;
-                    }
-                }
-            }
+        if (flag){
+            return;
         }
-        if (a3[0] != 0){
-            System.out.print(a3[0]);
+        StringBuilder ret = new StringBuilder();
+        int carry = 0;
+        int i = sa.length()-1;
+        int j = sb.length()-1;
+        while (i >= 0 && j >= 0){
+//            System.out.println("i = "+i+":j = "+j);
+            int sum = (sa.charAt(i) - '0') + (sb.charAt(j) - '0') + carry;
+            carry = sum/10;//进位
+            sum%=10;//该位计算所得结果
+            ret.append(sum);
+            i--;
+            j--;
+//            System.out.println(ret.toString());
         }
-        for (int i=1;i < a3.length;i++){
-            System.out.print(a3[i]);
+
+        while (i >= 0){
+            int sum = (sa.charAt(i) - '0') +carry;
+            carry = sum / 10;
+            sum%=10;
+            ret.append(sum);
+            i--;
+        }
+        while (j >= 0){
+            int sum = (sb.charAt(j) - '0') + carry;
+            carry = sum/10;
+            sum%=10;
+            ret.append(sum);
+            j--;
+        }
+        if (carry != 0){
+            ret.append('1');
+        }
+        String res = ret.toString();
+        for (int k = res.length()-1;k>=0;k--){
+            System.out.print(res.charAt(k));
         }
     }
 }
+
+

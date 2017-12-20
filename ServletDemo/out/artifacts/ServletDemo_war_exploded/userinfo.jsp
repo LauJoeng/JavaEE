@@ -60,11 +60,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <td class="title">出生日期：</td>
           <td class="content">&nbsp;
             <% 
-               SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-               String date = sdf.format(regUser.getBirthday());
-               
+//               SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+//               String date = sdf.format(regUser.getBirthday());
             %>
-             <%=date%>
+             <%--<%=date%>--%>
           </td>
         </tr>
         <tr>

@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <tr>
 			    	<td class="label">接受协议：</td>
 			    	<td class="controler">
-			    		<input type="checkbox" name="isAccept" value="true">是否接受霸王条款
+			    		<input type="checkbox" name="flag" value="true">是否接受霸王条款
 			    	</td>
 			    </tr>
 			    <tr>
