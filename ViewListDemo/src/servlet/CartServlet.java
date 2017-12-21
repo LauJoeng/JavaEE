@@ -31,8 +31,27 @@ public class CartServlet extends HttpServlet {
                    request.getRequestDispatcher("/failure.jsp").forward(request,response);
                }
             } else if (action.equals("show")) {
-//                showCart(request, response);
+                request.getRequestDispatcher("/cart.jsp").forward(request,response);
+            }else if(action.equals("delete")){
+                if (deleteFromCart(request,response))
+                {
+                    request.getRequestDispatcher("/cart.jsp").forward(request,response);
+                }else{
+                    request.getRequestDispatcher("/cart.jsp").forward(request,response);
+                }
             }
+        }
+    }
+
+    //从购物车中删除商品
+    private boolean deleteFromCart(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        Items item = iDao.getItemById(Integer.parseInt(id));
+        if (cart.removeGoodsFromCart(item)){
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -44,9 +63,9 @@ public class CartServlet extends HttpServlet {
         //是否是第一次给购物车添加商品,，需要给session创建一个新的购物车对象
         if (request.getSession().getAttribute("cart")==null){
             Cart cart = new Cart();
-            request.setAttribute("cart",cart);
+            request.getSession().setAttribute("cart",cart);
         }
-        Cart cart = (Cart) request.getAttribute("cart");
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
         if (cart.addGoodsInCart(items,Integer.parseInt(number))){
             return true;
         }else{
