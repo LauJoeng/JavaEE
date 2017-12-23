@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--<listener>
+        <listener-class>FirstListener</listener-class>
+    </listener>-->
+    <!--<context-param>
+        <param-name>initParam</param-name>
+        <param-value>Yang</param-value>
+    </context-param>-->
+    <session-config>
+        <session-timeout>
+            0<!--一分钟,并不准确-->
+        </session-timeout>
+    </session-config>
+    <listener>
+        <listener-class>MyHttpSessionAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>MyServletContextAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>MyServletRequestListener</listener-class>
+    </listener>
+</web-app>
