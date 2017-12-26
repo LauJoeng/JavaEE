@@ -940,7 +940,17 @@
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="236" parent="231" name="PRIMARY">
+    <column id="236" parent="231" name="birthday">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="237" parent="231" name="picture">
+      <Position>6</Position>
+      <DataType>blob|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="238" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

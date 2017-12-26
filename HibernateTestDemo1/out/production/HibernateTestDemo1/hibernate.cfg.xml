@@ -6,13 +6,13 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-     <property name="connection.username">root</property>
+
+       <property name="connection.username">root</property>
      <property name="connection.password">1909227160</property>
 
     <!-- DB schema will be updated if needed -->
      <property name="hbm2ddl.auto">update</property>
-
-    <mapping class="com.yang.StudentsEntity"/>
     <mapping resource="com/yang/StudentsEntity.hbm.xml"/>
+    <mapping class="com.yang.StudentsEntity"/>
   </session-factory>
 </hibernate-configuration>

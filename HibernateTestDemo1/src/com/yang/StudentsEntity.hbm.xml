@@ -9,5 +9,7 @@
         <property name="name" column="name"/>
         <property name="gender" column="gender"/>
         <property name="address" column="address"/>
+        <property name="birthday" column="birthday"/>
+        <property name="picture" column="picture"/>
     </class>
 </hibernate-mapping>

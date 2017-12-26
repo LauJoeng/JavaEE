@@ -1,6 +1,8 @@
 package com.yang;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
@@ -10,6 +12,8 @@ public class StudentsEntity {
     private String name;
     private String gender;
     private String address;
+    private Date birthday;
+    private byte[] picture;
 
     @Id
     @Column(name = "id")
@@ -51,6 +55,26 @@ public class StudentsEntity {
         this.address = address;
     }
 
+    @Basic
+    @Column(name = "birthday")
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    @Basic
+    @Column(name = "picture")
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,12 +83,28 @@ public class StudentsEntity {
         return id == that.id &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(gender, that.gender) &&
-                Objects.equals(address, that.address);
+                Objects.equals(address, that.address) &&
+                Objects.equals(birthday, that.birthday) &&
+                Arrays.equals(picture, that.picture);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, gender, address);
+        int result = Objects.hash(id, name, gender, address, birthday);
+        result = 31 * result + Arrays.hashCode(picture);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentsEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", birthday=" + birthday +
+//                ", picture=" + Arrays.toString(picture) +
+                '}';
     }
 }

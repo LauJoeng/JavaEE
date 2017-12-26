@@ -1,4 +1,4 @@
-<%--
+<%@ page import="javax.security.auth.login.Configuration" %><%--
   Created by IntelliJ IDEA.
   User: Yang
   Date: 2017/12/25
@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <%
+
+  %>
   </body>
 </html>
