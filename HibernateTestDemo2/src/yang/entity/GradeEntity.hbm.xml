@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="yang.entity.GradeEntity" table="grade" schema="hibernate">
+        <id name="gid" column="gid">
+            <generator class="increment"/>
+        </id>
+        <property name="gname" column="gname"/>
+        <property name="gdesc" column="gdesc"/>
+        <set name="students" table="student">
+            <key column="gid"/>
+            <one-to-many class="yang.entity.StudentEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>
