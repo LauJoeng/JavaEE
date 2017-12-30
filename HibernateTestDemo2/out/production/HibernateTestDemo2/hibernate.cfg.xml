@@ -12,7 +12,7 @@
       <property name="connection.password">1909227160</property>
 
 
-    <!-- DB schema will be updated if needed -->
+      <!-- DB schema will be updated if needed -->
      <property name="hbm2ddl.auto">update</property>
       <mapping class="yang.entity.GradeEntity"/>
       <mapping resource="yang/entity/GradeEntity.hbm.xml"/>

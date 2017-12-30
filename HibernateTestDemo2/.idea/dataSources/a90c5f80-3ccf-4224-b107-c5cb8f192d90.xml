@@ -928,6 +928,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="235" parent="231" name="gname">
@@ -950,6 +951,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="239" parent="232" name="sname">
@@ -963,13 +965,13 @@
       <DataType>char(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="232" name="gid">
+    <column id="241" parent="232" name="fk_gid">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="242" parent="232" name="fk_student_gid">
-      <ColNames>gid</ColNames>
+      <ColNames>fk_gid</ColNames>
     </index>
     <key id="243" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -977,7 +979,7 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="244" parent="232" name="fk_student_gid">
-      <ColNames>gid</ColNames>
+      <ColNames>fk_gid</ColNames>
       <RefSchemaName>hibernate</RefSchemaName>
       <RefTableName>grade</RefTableName>
       <RefColNames>gid</RefColNames>

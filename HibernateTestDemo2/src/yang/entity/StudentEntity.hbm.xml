@@ -5,11 +5,9 @@
 <hibernate-mapping>
 
     <class name="yang.entity.StudentEntity" table="student" schema="hibernate">
-        <id name="sid" column="sid">
-            <generator class="increment"/>
-        </id>
+        <id name="sid" column="sid"/>
         <property name="sname" column="sname"/>
         <property name="sex" column="sex"/>
-        <property name="gid" column="gid"/>
+        <property name="fkGid" column="fk_gid"/>
     </class>
 </hibernate-mapping>

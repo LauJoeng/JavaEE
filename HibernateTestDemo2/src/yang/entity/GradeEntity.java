@@ -1,20 +1,20 @@
 package yang.entity;
 
-
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "grade", schema = "hibernate", catalog = "")
-public class GradeEntity {
+public class GradeEntity implements Serializable{
     private int gid;
     private String gname;
     private String gdesc;
-    private Set<StudentEntity> students = new HashSet<>();
+    private Set<StudentEntity> student = new HashSet<>();
 
     @Id
     @Column(name = "gid")
@@ -46,15 +46,16 @@ public class GradeEntity {
         this.gdesc = gdesc;
     }
 
+
     @OneToMany
-    @Cascade(value = {org.hibernate.annotations.CascadeType.ALL})
+    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "gid")
-    public Set<StudentEntity> getStudents() {
-        return students;
+    public Set<StudentEntity> getStudent() {
+        return student;
     }
 
-    public void setStudents(Set<StudentEntity> students) {
-        this.students = students;
+    public void setStudent(Set<StudentEntity> student) {
+        this.student = student;
     }
 
     @Override

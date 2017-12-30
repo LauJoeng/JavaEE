@@ -1,16 +1,16 @@
 package yang.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "student", schema = "hibernate", catalog = "")
-public class StudentEntity {
+public class StudentEntity implements Serializable{
     private int sid;
     private String sname;
     private String sex;
-
-    private Integer gid;
+    private Integer fkGid;
 
     @Id
     @Column(name = "sid")
@@ -43,13 +43,13 @@ public class StudentEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "gid",referencedColumnName = "gid")
-    public Integer getGid() {
-        return gid;
+    @JoinColumn(name = "fk_gid",referencedColumnName = "gid")
+    public Integer getFkGid() {
+        return fkGid;
     }
 
-    public void setGid(Integer gid) {
-        this.gid = gid;
+    public void setFkGid(Integer fkGid) {
+        this.fkGid = fkGid;
     }
 
     @Override
@@ -60,12 +60,13 @@ public class StudentEntity {
         return sid == that.sid &&
                 Objects.equals(sname, that.sname) &&
                 Objects.equals(sex, that.sex) &&
-                Objects.equals(gid, that.gid);
+                Objects.equals(fkGid, that.fkGid);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(sid, sname, sex, gid);
+        return Objects.hash(sid, sname, sex, fkGid);
     }
+
 }
