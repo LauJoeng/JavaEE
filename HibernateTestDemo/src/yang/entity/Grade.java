@@ -54,14 +54,21 @@ public class Grade implements Serializable{
 		this.gdesc = gdesc;
 		this.students = students;
 	}
+	
+	
 
 	public Grade(String gname, String gdesc) {
 		super();
 		this.gname = gname;
 		this.gdesc = gdesc;
 	}
-	
-	
+
+//	public Grade(int gid, String gname, String gdesc) {
+//		super();
+//		this.gid = gid;
+//		this.gname = gname;
+//		this.gdesc = gdesc;
+//	}
 	
 	
 	

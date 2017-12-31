@@ -5,12 +5,24 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "student", schema = "hibernate", catalog = "")
+@Table(name = "student", schema = "hibernate2", catalog = "")
 public class StudentEntity implements Serializable{
     private int sid;
     private String sname;
     private String sex;
-    private Integer fkGid;
+
+    private GradeEntity grade;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(table = "grade",name = "gid")
+    public GradeEntity getGrade() {
+        return grade;
+    }
+
+    public void setGrade(GradeEntity grade) {
+        this.grade = grade;
+    }
+
 
     @Id
     @Column(name = "sid")
@@ -42,16 +54,6 @@ public class StudentEntity implements Serializable{
         this.sex = sex;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "fk_gid",referencedColumnName = "gid")
-    public Integer getFkGid() {
-        return fkGid;
-    }
-
-    public void setFkGid(Integer fkGid) {
-        this.fkGid = fkGid;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,14 +61,12 @@ public class StudentEntity implements Serializable{
         StudentEntity that = (StudentEntity) o;
         return sid == that.sid &&
                 Objects.equals(sname, that.sname) &&
-                Objects.equals(sex, that.sex) &&
-                Objects.equals(fkGid, that.fkGid);
+                Objects.equals(sex, that.sex);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(sid, sname, sex, fkGid);
+        return Objects.hash(sid, sname, sex);
     }
-
 }

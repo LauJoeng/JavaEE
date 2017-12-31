@@ -13,9 +13,13 @@
         <property name="gdesc" type="java.lang.String">
             <column name="gdesc" />
         </property>
-        <set name="students" table="student">
+        <!-- 单项一对多配置 -->
+        <!-- inverse属性默认值为false，设置为true表示该方为主动方，主动方维护关联关系  -->
+        <!-- cascade属性设置为save-update,当进行保存更新操作时进行级联操作 -->
+        <set name="students" table="student" inverse="true" cascade="save-update">
             <key column="gid"></key>
             <one-to-many class="yang.entity.Student" />
         </set>
+        
     </class>
 </hibernate-mapping>

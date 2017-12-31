@@ -4,15 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="yang.entity.GradeEntity" table="grade" schema="hibernate">
+    <class name="yang.entity.GradeEntity" table="grade" schema="hibernate2">
         <id name="gid" column="gid">
             <generator class="increment"/>
         </id>
-        <property name="gname" column="gname" not-null="true"/>
+        <property name="gname" column="gname"/>
         <property name="gdesc" column="gdesc"/>
-        <!--配置单向的一对多关联关系-->
-        <set name="student" table="student">
-            <key column="fk_gid"/>
+        <set name="students" table="student"  cascade="save-update" inverse="true">
+            <key column="gid"/>
             <one-to-many class="yang.entity.StudentEntity"/>
         </set>
     </class>

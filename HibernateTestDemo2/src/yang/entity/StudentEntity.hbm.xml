@@ -4,10 +4,13 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="yang.entity.StudentEntity" table="student" schema="hibernate">
-        <id name="sid" column="sid"/>
+    <class name="yang.entity.StudentEntity" table="student" schema="hibernate2">
+        <id name="sid" column="sid">
+            <generator class="increment"/>
+        </id>
         <property name="sname" column="sname"/>
         <property name="sex" column="sex"/>
-        <property name="fkGid" column="fk_gid"/>
+        <many-to-one name="grade" class="yang.entity.GradeEntity" column="gid" cascade="all">
+        </many-to-one>
     </class>
 </hibernate-mapping>

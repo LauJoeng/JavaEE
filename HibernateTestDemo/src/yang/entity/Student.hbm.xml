@@ -14,5 +14,7 @@
         <property name="sex" type="java.lang.String">
             <column name="sex" />
         </property>
+        <!-- 配置多对一关系 -->
+        <many-to-one  name="grade" class="yang.entity.Grade" column="gid" cascade="all"/>
     </class>
 </hibernate-mapping>
