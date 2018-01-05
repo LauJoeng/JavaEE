@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="yang.entity.CommodityEntity" table="commodity" schema="webshop">
+        <id name="id" column="Id"/>
+        <property name="name" column="name"/>
+        <property name="price" column="price"/>
+        <property name="unit" column="unit"/>
+        <property name="category" column="category"/>
+        <property name="description" column="description"/>
+        <many-to-one name="seller" class="yang.entity.SellerEntity" fetch="join">
+            <column name="seller"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

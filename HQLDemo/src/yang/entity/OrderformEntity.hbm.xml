@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="yang.entity.OrderformEntity" table="orderform" schema="webshop">
+        <id name="id" column="Id"/>
+        <property name="tradedate" column="tradedate"/>
+        <property name="status" column="status"/>
+        <property name="amount" column="amount"/>
+        <!--<set name="orderItems" inverse="true"  cascade="all" lazy="false">-->
+            <!--<key>-->
+                <!--<column name="orderid" />-->
+            <!--</key>-->
+            <!--<one-to-many class="yang.entity.Or  deritemEntity" />-->
+        <!--</set>-->
+        <many-to-one name="customer" class="yang.entity.CustomerEntity"
+                     fetch="join">
+            <column name="customer" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
