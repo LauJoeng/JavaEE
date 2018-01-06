@@ -15,7 +15,7 @@ public class OrderitemEntity {
     private CommodityEntity commodity;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(table = "oderform",name = "Id")
+    @JoinColumn(name = "Id")
     @Column(name = "ORDERID")
     public OrderformEntity getOrder() {
         return order;

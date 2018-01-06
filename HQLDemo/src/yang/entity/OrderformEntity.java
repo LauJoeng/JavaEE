@@ -19,8 +19,8 @@ public class OrderformEntity implements Serializable{
     private Set<OrderitemEntity>orderItems = new HashSet<>();
 
     //多对一关系在由多方持有一方的引用，注解@joinColumn(name="") 其中name是一方对应表中的列名
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "Id")
+//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn(name = "Id")
     public Set<OrderitemEntity> getOrderItems() {
         return orderItems;
     }

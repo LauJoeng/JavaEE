@@ -15,6 +15,16 @@ public class SellerEntity implements Serializable {
     private Integer star;
     private String business;
 
+    public SellerEntity(String name,String tel,String address)
+    {
+        this.name = name;
+        this.tel = tel;
+        this.address = address;
+    }
+
+    public SellerEntity() {
+    }
+
     @Id
     @Column(name = "Id")
     public int getId() {
