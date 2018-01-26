@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Message">
+
+  <resultMap type="bean.Message" id="MessageResult">
+    <id column="id" jdbcType="INTEGER" property="id"/><!--主键列 property对应javabean中属性名-->
+    <result column="command" jdbcType="VARCHAR" property="command"/><!--普通列-->
+    <result column="description" jdbcType="VARCHAR" property="description"/>
+    <result column="content" jdbcType="VARCHAR" property="content"/>
+  </resultMap>
+
+  <!--<select id="queryMessageList"  parameterType="bean.Message" resultMap="MessageResult">
+    SELECT ID,COMMAND,DESCRIPTION,CONTENT FROM message WHERE 1=1
+    <if test="command!=null">
+      and command=#{command}
+    </if>/*这里&amp;是转义，相当于java代码中的 与 操作符，也可以用and代替，后面&quot;是防止双引号冲突转义*/
+    <if test="description!=null &amp;&amp;!&quot;&quot;.equals(command.trim())">
+      and description LIKE '%' #{description} '%'
+    </if>
+  </select>-->
+  <select id="queryMessageList" parameterType="bean.Message" resultMap="MessageResult">
+    select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE
+    <where>
+      <if test="command != null and !&quot;&quot;.equals(command.trim())">
+        and COMMAND=#{command}
+      </if>
+      <if test="description != null and !&quot;&quot;.equals(description.trim())">
+        and DESCRIPTION like '%' #{description} '%'
+      </if>
+    </where>
+  </select>
+
+</mapper>
