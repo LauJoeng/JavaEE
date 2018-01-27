@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 /**
@@ -76,6 +75,65 @@ public class MessageDao {
             }
         }
         return messages;
+    }
+
+    /**
+     * 单条删除
+     * @param id
+     */
+    public void deleteOne(int id){
+        DBAccess dbAccess = new DBAccess();
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = dbAccess.getSqlSession();
+            sqlSession.delete("Message.deleteOne",id);
+            System.out.println("in deleteOne Method id = "+id);
+            sqlSession.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (sqlSession!=null)
+            {
+                sqlSession.close();
+            }
+        }
+
+    }
+
+    /**
+     * 批量删除
+     * @param ids
+     */
+    public void deleteBatch(List<Integer> ids){
+        DBAccess dbAccess = new DBAccess();
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = dbAccess.getSqlSession();
+            sqlSession.delete("Message.deleteBatch",ids);
+            sqlSession.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (sqlSession!=null)
+            {
+                sqlSession.close();
+            }
+        }
+
+    }
+
+    public void insertOne(Message message) {
+        DBAccess dbAccess = new DBAccess();
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = dbAccess.getSqlSession();
+            sqlSession.insert("Message.insertOne",message);
+            sqlSession.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            sqlSession.close();
+        }
     }
 
     public static void main(String args[])

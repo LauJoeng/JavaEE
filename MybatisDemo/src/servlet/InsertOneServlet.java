@@ -1,13 +1,16 @@
 package servlet;
 
-import service.QueryService;
+import service.MaintainService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ListServlet extends javax.servlet.http.HttpServlet {
+@WebServlet(name = "InsertOneServlet",urlPatterns = "/InsertOneServlet.action")
+public class InsertOneServlet extends HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         forward(request,response);
     }
@@ -17,14 +20,12 @@ public class ListServlet extends javax.servlet.http.HttpServlet {
         //接收页面的值
         String command = request.getParameter("command");
         String description = request.getParameter("description");
-        //向页面传值
-        request.setAttribute("command",command);
-        request.setAttribute("description",description);
-        QueryService queryService = new QueryService();
-        //查询消息列表并传给页面
-        request.setAttribute("messageList", queryService.queryMessageList(command,description));
+        String content = request.getParameter("content");
+        MaintainService maintainService = new MaintainService();
+        maintainService.insertOne(command,description,content);
         //跳转
-        request.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(request,response);
+//        request.getRequestDispatcher("/List.action").forward(request,response);
+        response.sendRedirect("/List.action");
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {

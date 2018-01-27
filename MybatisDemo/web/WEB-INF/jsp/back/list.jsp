@@ -1,5 +1,4 @@
-﻿<%@ page import="java.util.ArrayList" %>
-<%@ page import="bean.Message" %>
+﻿<%@ page import="bean.Message" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -14,13 +13,15 @@
 		<meta http-equiv="X-UA-Compatible"content="IE=9; IE=8; IE=7; IE=EDGE" />
 		<title>内容列表页面</title>
 		<link href="<%=basePath%>resources/css/all.css" rel="stylesheet" type="text/css" />
+		<script src="<%= basePath %>resources/js/common/jquery-1.8.0.min.js"></script>
+		<script src="<%= basePath %>resources/js/back/list.js"></script>
 	</head>
 	<body style="background: #e1e9eb;">
 		<form action="${pageContext.request.contextPath}/List.action" id="mainForm" method="post">
 			<div class="right">
 				<div class="current">当前位置：<a href="javascript:void(0)" style="color:#6E6E6E;">内容管理</a> &gt; 内容列表</div>
 				<div class="rightCont">
-					<p class="g_title fix">内容列表 <a class="btn03" href="#">新 增</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn03" href="#">删 除</a></p>
+					<p class="g_title fix">内容列表 <a class="btn03" href="${pageContext.request.contextPath}/add_command.jsp">新 增</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn03" href="javascript:deleteBatch('<%=basePath%>');">删 除</a></p>
 					<table class="tab1">
 						<tbody>
 							<tr>
@@ -73,13 +74,13 @@
 									{
 								%>
 								<tr>
-									<td><input type="checkbox" /></td>
+									<td><input type="checkbox" name="id" value="<%=m.getId()%>"/></td>
 									<td><%=m.getId()%></td>
 									<td><%=m.getCommand()%></td>
 									<td><%=m.getDescription()%></td>
 									<td>
 										<a href="#">修改</a>&nbsp;&nbsp;&nbsp;
-										<a href="#">删除</a>
+										<a href="<%=basePath%>DeleteOneServlet.action?id=<%=m.getId()%>">删除</a>
 									</td>
 								</tr>
 								<%
