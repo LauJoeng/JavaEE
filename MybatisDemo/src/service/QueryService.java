@@ -1,10 +1,14 @@
 package service;
 
+import bean.Command;
+import bean.CommandContent;
 import bean.Message;
+import dao.CommandDao;
 import dao.MessageDao;
 import util.Iconst;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * 列表相关的业务功能
@@ -18,24 +22,26 @@ public class QueryService {
 
     public String queryByCommand(String command)
     {
-        MessageDao messageDao = new MessageDao();
-        List<Message>messageList = messageDao.queryMessageList(command,null);
+        CommandDao commandDao = new CommandDao();
+        List<Command>commandList;
         if (Iconst.HELP_COMMAND.equals(command))
         {
-            messageList = messageDao.queryMessageList(null,null);
+            commandList = commandDao.queryCommandList(null,null);
             StringBuilder result = new StringBuilder();
-            for (int i=0;i<messageList.size();i++)
+            for (int i=0;i<commandList.size();i++)
             {
                 if (i!=0){
                     result.append("</br>");
                 }
-                result.append("回复[").append(messageList.get(i).getCommand()).append("]可以查看").append(messageList.get(i).getDescription());
+                result.append("回复[").append(commandList.get(i).getName()).append("]可以查看").append(commandList.get(i).getDescription());
             }
             return result.toString();
         }
-        if (messageList.size()>0)
+        commandList = commandDao.queryCommandList(command,null);
+        if (commandList.size()>0)
         {
-            return messageList.get(0).getContent();
+            List<CommandContent>contentList = commandList.get(0).getContentList();
+            return contentList.get(new Random().nextInt(contentList.size())).getContent();
         }
         return Iconst.NO_MATCHING_CONTENT;
     }

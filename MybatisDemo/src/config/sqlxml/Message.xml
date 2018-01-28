@@ -59,7 +59,7 @@
             </foreach>
     )
     </delete>
-    <insert id="insertOne" parameterType="bean.Message">
+    <insert id="insertOne" parameterType="bean.Message" useGeneratedKeys="true" keyProperty="id">/*useGeneratedKeys属性设置表明使用生成的主键而不是指定的主键,keyProperty指定主键映射到类中哪个属性*/
         INSERT INTO message SET COMMAND = #{command},DESCRIPTION = #{description},CONTENT = #{content}
     </insert>
 

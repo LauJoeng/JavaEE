@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Command">
+    <resultMap type="bean.Command" id="CommandResult">
+        <id column="C_ID" jdbcType="INTEGER" property="id"/><!--主键列 property对应javabean中属性名-->
+        <result column="name" jdbcType="VARCHAR" property="name"/><!--普通列-->
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <collection property="contentList" resultMap="CommandContent.CommandContent"/>
+    </resultMap>
+
+    <select id="queryCommandList" parameterType="bean.Command" resultMap="CommandResult">
+        select a.ID AS C_ID,a.NAME,a.DESCRIPTION,b.CONTENT,b.COMMAND_ID
+        from COMMAND as a LEFT JOIN command_content as b
+        on a.id = b.command_id
+        <where>
+            <if test="name != null and !&quot;&quot;.equals(name.trim())">
+                and a.NAME=#{name}/*这里的and重复出现不会导致sql语句出错，where标签会截掉多余的and*/
+            </if>
+            <if test="description != null and !&quot;&quot;.equals(description.trim())">
+                and a.DESCRIPTION like '%' #{description} '%'
+            </if>
+        </where>
+    </select>
+
+    <sql id="columns">ID,COMMAND,DESCRIPTION,CONTENT</sql>
+    <!--sql标签可以定义引用，可以吧这个用的select标签下
+    示例：select <include refid="columns">-->
+
+    <update id="update" parameterType="bean.message">
+        UPDATE message
+        <set>
+            <if test="name != null and !&quot;&quot;.equals(name.trim())">
+                and a.NAME=#{name}/*这里的and重复出现不会导致sql语句出错，where标签会截掉多余的and*/
+            </if>
+            <if test="description != null and !&quot;&quot;.equals(description.trim())">
+                and a.DESCRIPTION like '%' #{description} '%'
+            </if>
+        </set>
+        <trim prefix="where" suffix="test" prefixOverrides="and/or" suffixOverrides="tets">
+          /*这里prefix是前缀的意思，表示如果经过里面的判断有值的话就在拼接句子前面添加一个该prefix，suffix表后缀，作用相似，可以用trim代替where和set标签*/
+            <if test="name != null and !&quot;&quot;.equals(name.trim())">
+                and a.NAME=#{name}/*这里的and重复出现不会导致sql语句出错，where标签会截掉多余的and*/
+            </if>
+            <if test="description != null and !&quot;&quot;.equals(description.trim())">
+                and a.DESCRIPTION like '%' #{description} '%'
+            </if>
+        </trim>
+        <choose>
+            <when test="">
+                SCALE
+            </when>
+            <when test="">
+                SCALE
+            </when>
+            <otherwise>
+                SCALE
+            </otherwise>
+        </choose>
+        /*/*choose标签相当于switch语句*/*/
+    </update><!--这里的set标签和where标签作用相似，都是为了去掉多余的逗号-->
+
+
+</mapper>

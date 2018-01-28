@@ -47,7 +47,9 @@
   </environments>
 
   <mappers>
-    <mapper resource="config/sqlxml/Messqge.xml"/>
+    <mapper resource="config/sqlxml/Message.xml"/>
+    <mapper resource="config/sqlxml/Command.xml"/>
+    <mapper resource="config/sqlxml/CommandContent.xml"/>
   </mappers>
 
 </configuration>
