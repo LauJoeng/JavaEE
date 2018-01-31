@@ -57,7 +57,7 @@ mybatis配置文件中常用标签
 
 parameterType指向一个java类型，与OGNL表达式紧密关联，parameterMap与resultMap相似
 parameterMap也需要一个想resultMap那样配置一个这样的内容，也有id，resultMap是表名结果集中的列
-与类中的属性的对应关系二parameterMap是表明参数中的属性与数据库中对应的关系，parameterMap并不推荐使用
+与类中的属性的对应关系而parameterMap是表明参数中的属性与数据库中对应的关系，parameterMap并不推荐使用
 
 遇到乱码问题时要注意，要从以下几个方面检查
 1. 代码本身的编码

@@ -20,7 +20,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Message">
+<mapper namespace="dao.IMessage">
 
   <resultMap type="bean.Message" id="MessageResult">
     <id column="id" jdbcType="INTEGER" property="id"/><!--主键列 property对应javabean中属性名-->
@@ -38,7 +38,7 @@
       and description LIKE '%' #{description} '%'
     </if>
   </select>-->
-  <select id="queryMessageList" parameterType="bean.Message" resultMap="MessageResult">
+  <select id="queryMessageList"  parameterType="bean.Message" resultMap="MessageResult">
     select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE
     <where>
       <if test="command != null and !&quot;&quot;.equals(command.trim())">
@@ -59,7 +59,7 @@
             </foreach>
     )
     </delete>
-    <insert id="insertOne" parameterType="bean.Message">
+    <insert id="insertOne" parameterType="bean.Message" useGeneratedKeys="true" keyProperty="id">/*useGeneratedKeys属性设置表明使用生成的主键而不是指定的主键,keyProperty指定主键映射到类中哪个属性*/
         INSERT INTO message SET COMMAND = #{command},DESCRIPTION = #{description},CONTENT = #{content}
     </insert>
 

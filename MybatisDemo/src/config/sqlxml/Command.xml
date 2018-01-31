@@ -46,7 +46,7 @@
     <sql id="columns">ID,COMMAND,DESCRIPTION,CONTENT</sql>
     <!--sql标签可以定义引用，可以吧这个用的select标签下
     示例：select <include refid="columns">-->
-
+<!--
     <update id="update" parameterType="bean.message">
         UPDATE message
         <set>
@@ -78,7 +78,6 @@
             </otherwise>
         </choose>
         /*/*choose标签相当于switch语句*/*/
-    </update><!--这里的set标签和where标签作用相似，都是为了去掉多余的逗号-->
-
+    </update>--><!--这里的set标签和where标签作用相似，都是为了去掉多余的逗号-->
 
 </mapper>

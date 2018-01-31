@@ -26,5 +26,6 @@
         <id column="id" jdbcType="INTEGER" property="id"/><!--主键列 property对应javabean中属性名-->
         <result column="content" jdbcType="VARCHAR" property="content"/><!--普通列-->
         <result column="command_id" jdbcType="VARCHAR" property="commandId"/>
+        <association property="command" resultMap="Command.CommandResult"/>
     </resultMap>
 </mapper>
