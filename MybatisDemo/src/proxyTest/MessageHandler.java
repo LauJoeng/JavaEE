@@ -10,7 +10,7 @@ public class MessageHandler implements InvocationHandler{
      *
      * @param proxy 方法调用的代理实例
      * @param method 接口的方法的class
-     * @param args 接口方法的参数数组
+     * @param args 接口方法所需参数的数组
      * @return 接口方法返回对象的类型
      */
     @Override
