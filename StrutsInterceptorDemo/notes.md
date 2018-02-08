@@ -1,0 +1,4 @@
+创建一个拦截器大致分为两步
+
+1. 创建一个类继承自AbstractInterceptor类，实现intercept方法，在intercept方法中实现拦截逻辑业务
+2. 在struts.xml文件中配置，先注册拦截器，再在action中引用拦截器

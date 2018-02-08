@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- include结点是Struts中组件化的方式，可以将每个功能模块独立到一个xml文件，然后利用include包标签包含进来 -->
+	<include file="struts-default.xml"></include>
+	
+	<!-- package标签提供了多个Action组织为一个模块的方式，package的名字必须是唯一的，package可以扩展自另一个package，这时该package
+	会在本身配置的基础上加入扩展的package的配置，父package必须在子package之前配置
+	name:package的名称
+	abstract:设置package的属性是否抽象，抽象的package下不能丁酉action，值true|false
+	namespace：定义package命名空间，该命名空间影响到url的地址，例如命名空间为/test,那么访问地址为http://localhost:8080/strutstest/test/XX.action -->
+	<package name="default1" namespace="/" extends="struts-default">
+		
+		<interceptors>
+			  <!-- 定义拦截器
+			  name：拦截器名称
+			  class：拦截器类路径 -->
+			<interceptor name="timer" class="com.yang.HelloWorldAction"></interceptor>
+			
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="timer"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 定义默认的拦截器，每个action都会自动引用，如果action中引用了其他的拦截器，默认的拦截器无效 -->
+		<default-interceptor-ref name="mystack"></default-interceptor-ref>		
+		
+		<!-- 全局results配置 -->
+		<global-results>
+			<result name="input">/error.jsp</result>
+		</global-results>
+		
+		<!-- action配置，一个action可以被	多次映射(只要action中的name不同)，一个package中可以定义多个action
+			name:action的名称   ex:http://localhost:8080/Project_name/helloworld.action
+			class:对应的类路径
+			method:调用action中的方法名 -->
+		<action name="helloworld" class="com.example.action.HelloWorldAction" >
+		
+			<!-- 引用拦截器      name:拦截器的名称或拦截器栈的名称 -->
+			<interceptor-ref name="mystack"></interceptor-ref>
+			
+			<!-- 结点配置
+				name:result名称和action中的返回值相同
+				type:result类型不同选用superpackage的type struts-default.xml中的默认 -->
+			<result name="success" type="dispatcher">/result.jsp</result>
+			
+			<!-- 参数设置     name:对应action中的get/set方法 -->
+			<param name="url">http://www.baidu.com</param>
+		</action>
+	</package>
+	<package name="default" namespace="/" extends="struts-default" strict-method-invocation="false">
+		<action name="HelloWorld_*" method="{1}" class="com.example.action.HelloWorldAction">
+			<result>/result.jsp</result>
+			<result name="add">/{1}.jsp</result>
+		</action>
+		<action name="LoginAction" method="login" class="com.example.action.LoginAction">
+			<result>/success.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+</struts>
