@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 配置bean  通过反射的方式配置
+		 class: bean 的全类名，通过反射的方式在IOC容器中创建bean，所以要求 bean中必须有无参数的构造容器
+		 id:标识容器中的bean，id值唯一-->
+	<bean id="helloWorld" class="com.yang.beans.HelloWorld">
+		<property name="name" value="Spring"></property>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- 通过构造方法来配置bean的属性  ,index或type来区分重载的构造器，index表示参数列表的顺序，type表示参数类型,两者可以混合使用-->
+	 <bean id="car" class="com.yang.beans.Car">
+		<constructor-arg value="audi" index="0"></constructor-arg>
+		<constructor-arg value="shanghai" index="1"></constructor-arg>
+		<constructor-arg value="10000" type="double"></constructor-arg>
+	</bean>
+	
+	<bean id="car2" class="com.yang.beans.Car">
+		<constructor-arg value="baoma" type="java.lang.String"></constructor-arg>
+		<!-- 如果字面值包含特殊字符，可以使用<![CDATA[]]>包裹起来 -->
+		<!-- 属性值也可以用value子结点配置 -->
+		<constructor-arg type="java.lang.String">
+			<value><![CDATA[<shanghai^>]]></value>
+		</constructor-arg>
+		<constructor-arg  type="int">
+			<value>2588</value>
+		</constructor-arg>
+	</bean>
+	
+	
+	
+	<bean id="person" class="com.yang.beans.Person">
+		<property name="name" value="zhansan"></property>
+		<property name="age" value="23"></property>
+		<!-- 可以使用property的   ref 属性建立bean之间的应用关系,有如下两种方式 -->
+		<!-- <property name="car" ref="car2"></property> -->
+		<!--
+		<property name="car">
+			<ref bean="car2"/>
+		</property>
+		-->
+		<!-- 可以为属性赋null值，不过意义不大，因为本身就是null值，赋值方式为<null/>，这也是null的专有标记 -->
+		<!-- 或者直接使用内部bean,内部bean不能被外部引用 -->
+		<property name="car">
+			<bean class="com.yang.beans.Car">
+				<constructor-arg value="Ford"></constructor-arg>
+				<constructor-arg value="Changan"></constructor-arg>
+				<constructor-arg value="200000" ></constructor-arg>
+			</bean>
+		</property>
+		<!-- 可以为级联属性赋值，注意：属性需要先初始化才可以为级联属性赋值，否则会有异常，及级联对象不能为空 -->
+		<property name="car.maxSpeed" value="256"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- 测试如何配置集合属性 -->
+	<bean id="person2" class="com.yang.collections.Person">
+		<property name="name" value="mike"></property>
+		<property name="age" value="34"></property>
+		<property name="cars">
+			<!-- 使用list结点为list集合属性赋值 -->
+			<list>
+				<ref bean="car"></ref>
+				<ref bean="car2"></ref>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
