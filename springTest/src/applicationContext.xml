@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
 	<!-- 配置bean  通过反射的方式配置
 		 class: bean 的全类名，通过反射的方式在IOC容器中创建bean，所以要求 bean中必须有无参数的构造容器
@@ -61,7 +64,8 @@
 	
 	
 	
-	<!-- 测试如何配置集合属性 -->
+	<!-- 测试如何配置集合属性     
+		 其中list子结点对应List，set子结点对应Set集合，array子结点对应数组 -->
 	<bean id="person2" class="com.yang.collections.Person">
 		<property name="name" value="mike"></property>
 		<property name="age" value="34"></property>
@@ -74,4 +78,44 @@
 		</property>
 	</bean>
 	
+	<!-- 当bean的集合属性是map时，配置方法如下 -->
+	<bean id="newPerson" class="com.yang.collections.NewPerson">
+		<property name="name" value="rose"></property>
+		<property name="age" value="54"></property>
+		<property name="cars">
+			<map>
+				<entry key="AA" value-ref="car"></entry>
+				<entry key="BB" value-ref="car2"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!--配置properties属性 -->
+	<bean id="dataSource" class="com.yang.collections.DataSource">
+		<property name="properties">
+			<!-- 使用props和prop子结点可以配置Properties属性 -->
+			<props>
+				<prop key="user">root1</prop>
+				<prop key="password">12345</prop>
+				<prop key="jdbcUrl">jdbc:mysql</prop>
+				<prop key="driverClass">com.mysql.jdbc.Driver</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+	<!-- 引入util命名空间配置单例的集合bean，以供多个bean进行引用,在其他地方只要配置ref属性指向这个id即可 -->
+	<util:list id="cars">
+		<ref bean="car"/>
+		<ref bean="car2"/>
+	</util:list>
+	
+	<bean id="person3" class="com.yang.collections.Person">
+		<property name="name" value="Jack"></property>
+		<property name="age" value="89"></property>
+		<property name="cars" ref="cars"></property>
+	</bean>
+	
+	<!-- 通过p命名空间为bean的属性赋值，需要先导入p命名空间   相对于前面的配置方式这种方式更便捷-->
+	<bean id="person4" class="com.yang.collections.Person" p:age="30" p:name="Lucy" p:cars-ref="cars"></bean>
 </beans>
