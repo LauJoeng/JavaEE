@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="car" class="com.yang.cycle.Car" init-method="init" destroy-method="destroy">
+		<property name="brand" value="Audi"></property>
+	</bean>
+	<!-- 配置bean的后置处理器 ，不需要配置id，IOC容器自动识别是yigeBeanPostProcessor
+		实现BeanPostProcessor接口，并具体提供两个方法的实现，一个是在init之前调用，一个是在init之后调用，其中两个参数，
+		Object bean 实例本身，String beanName IOC 容器配置的bean的名字，返回值是实际上返回给用户的那个bean，注意：可以在上述两个方法中修改返回的
+		bean，甚至返回一个新的bean-->
+	<bean class="com.yang.cycle.MyBeanPostProcessor"></bean>
+</beans>

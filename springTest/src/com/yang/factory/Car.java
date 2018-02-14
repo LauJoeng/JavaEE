@@ -1,8 +1,9 @@
-package com.yang.autowire;
+package com.yang.factory;
 
 public class Car {
 	private String brand;
 	private double price;
+	
 	public String getBrand() {
 		return brand;
 	}
@@ -19,8 +20,10 @@ public class Car {
 	public String toString() {
 		return "Car [brand=" + brand + ", price=" + price + "]";
 	}
-	public Car() {
-		System.out.println("car's constructor");
+	public Car(String brand, double price) {
+		super();
+		this.brand = brand;
+		this.price = price;
 	}
 	
 	

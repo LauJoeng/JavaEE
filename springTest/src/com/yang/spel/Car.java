@@ -1,8 +1,18 @@
-package com.yang.autowire;
+package com.yang.spel;
 
 public class Car {
 	private String brand;
 	private double price;
+	
+	private double tyrePerimeter;
+	
+	
+	public double getTyrePerimeter() {
+		return tyrePerimeter;
+	}
+	public void setTyrePerimeter(double tyrePerimeter) {
+		this.tyrePerimeter = tyrePerimeter;
+	}
 	public String getBrand() {
 		return brand;
 	}
@@ -17,7 +27,7 @@ public class Car {
 	}
 	@Override
 	public String toString() {
-		return "Car [brand=" + brand + ", price=" + price + "]";
+		return "Car [brand=" + brand + ", price=" + price + ", tyrePerimeter=" + tyrePerimeter + "]";
 	}
 	public Car() {
 		System.out.println("car's constructor");
