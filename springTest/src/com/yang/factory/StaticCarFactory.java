@@ -12,10 +12,12 @@ public class StaticCarFactory {
 	
 	static {
 		cars.put("audi", new Car("audi",300000));
+		cars.put("ford", new Car("audi",400000));
 	}
 	
+	//静态工厂方法
 	public static Car getCar(String name)
 	{
-		return null;
+		return cars.get(name);
 	}
 }
