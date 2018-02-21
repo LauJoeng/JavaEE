@@ -1,10 +1,13 @@
 anonymizeMessages=false
 anonymizeStackTraces=true
+configured=true
 debugEnabled=false
 disableAutomaticWiringAnalysis=false
 eclipse.preferences.version=1
-reporterEmail=
-reporterName=
+reporterEmail=1909227160@qq.com
+reporterName=yang
 resetSendMode=KEEP
 resetSendModeOn=0
 sendMode=NOTIFY
+servers/org.eclipse.epp.logging.aeri.ide.server/configured=true
+servers/org.jboss.tools/configured=true

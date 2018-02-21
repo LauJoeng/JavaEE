@@ -52,3 +52,11 @@ spring-expression-4.0.5.RELEASE.jar
  声明一个方法，在方法前加入@Before注解
  
  可以在通知方法中声明一个类型为JointPoint的参数，然后就能访问链接细节，如方法名称和参数
+ 
+ 
+ 
+ 
+ 
+ **spring对jdbc的支持**
+ 
+ 
