@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=springTest/E:\/code\/JavaEE\/springTest\/WebContent\/WEB-INF\/lib\/spring-beans-4.0.5.RELEASE.jar&lt;org.springframework.beans.factory.config(BeanPostProcessor.class[BeanPostProcessor" modifiers="1537" timestamp="1518434893255"/>
+<typeInfo handle="=springTest3/src&lt;com.yang.transaction{BookShopDao.java[BookShopDao" modifiers="513" timestamp="1519353285465"/>
+<typeInfo handle="=springTest3/src&lt;com.yang.transaction{BookShopService.java[BookShopService" modifiers="513" timestamp="1519355138457"/>
+<typeInfo handle="=springTest3/src&lt;com.yang.transaction{Cashier.java[Cashier" modifiers="513" timestamp="1519357063375"/>
 </typeInfoHistroy>
