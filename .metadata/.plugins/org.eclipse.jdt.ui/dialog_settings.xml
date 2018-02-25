@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="OSGi/Minimum-1.1" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
+	<item value="JavaSE-1.8" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
 	<item value="E:\code\JavaEE\ViewListDemo\web\WEB-INF\lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="filter_imports;" key="filters_last_used"/>
+	<item value="1" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="574" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
@@ -44,6 +45,13 @@
 		<item value="false" key="expanded6"/>
 		<item value="false" key="expanded5"/>
 		<item value="true" key="expanded0"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
+		<item value="577" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="439" key="DIALOG_HEIGHT"/>
+		<item value="74" key="DIALOG_X_ORIGIN"/>
+		<item value="-20" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="BreadcrumbItemDropDown">
 	</section>
@@ -178,7 +186,7 @@
 		<item value="false" key="OmitCallToSuper"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="3" key="index"/>
+		<item value="7" key="index"/>
 	</section>
 	<section name="org.hibernate.eclipse.jdt.ui.wizards.JavaPackageSelectionDialog">
 		<item value="484" key="x"/>

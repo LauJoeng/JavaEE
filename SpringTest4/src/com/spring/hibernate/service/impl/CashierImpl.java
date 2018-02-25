@@ -12,7 +12,6 @@ public class CashierImpl implements Cashier{
 
 	private BookShopService bookShopService;
 	
-	
 	@Override
 	public void checkout(String username, List<String> isbns) {
 		for(String isbn:isbns) {
