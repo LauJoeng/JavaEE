@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Application Lifecycle Listener implementation class SpringServletContextListener
  *
  */
-@WebListener
+//@WebListener
 public class SpringServletContextListener implements ServletContextListener {
 
     /**

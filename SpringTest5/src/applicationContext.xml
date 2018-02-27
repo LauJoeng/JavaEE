@@ -7,5 +7,9 @@
 		<property name="username" value="yang"></property>
 	</bean>
 
-
+	<!-- 注意:在配置IOC容器中配置Struts2的Action时，需要配置scope属性，其值必须为prototype -->
+	<bean id="personAction" class="com.example.spring.struts2.actions.PersonAction" scope="prototype">
+		<property name="personService" ref="personService"></property>
+	</bean>
+	<bean id="personService" class="com.example.spring.struts2.service.PersonService"></bean>
 </beans>
