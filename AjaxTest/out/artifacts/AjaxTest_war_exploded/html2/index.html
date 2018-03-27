@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>$Title$</title>
+    <script type="text/javascript" src="../script/jquery-1.10.1.js"></script><!--..  表示上一级目录-->
+    <script type="text/javascript">
+        $(function () {
+            $('a').click(function () {
+                var url = this.href;
+                var args = {"time":new Date()};
+                $('#details').load(url,args);
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>People</h1>
+    <ul>
+        <li>
+            <a href="files/andy.html">andy</a>
+        </li>
+        <li>
+            <a href="files/richard.html">richard</a>
+        </li>
+        <li>
+            <a href="files/jeremy.html">jeremy</a>
+        </li>
+    </ul>
+    <div id="details"></div>
+</body>
+</html>
+
+
