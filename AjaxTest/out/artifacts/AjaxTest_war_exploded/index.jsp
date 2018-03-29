@@ -7,10 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-    <script type="text/javascript">
+<head>
+  <title>$Title$</title>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery-1.10.1.js"></script>
+  <script type="text/javascript">
 
+      /*
       window.onload = function () {
           //1.获取a节点，并为其添加onclick响应函数，取消其默认行为
           document.getElementsByTagName("a")[0].onclick = function () {
@@ -38,13 +40,12 @@
                       }
                   }
               }
-
               return false;
           };
-      }
-    </script>
-  </head>
-  <body>
-  <a href="helloAjax.txt">HelloAjax</a>
-  </body>
+      }*/
+  </script>
+</head>
+<body>
+<a href="helloAjax.txt">HelloAjax</a>
+</body>
 </html>

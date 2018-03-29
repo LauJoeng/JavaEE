@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShoppingCart {
-    private int totalBookNum;
 
     //存放ShoppingCartItem的Map。键：书名，值：ShoppingCartItem对象
     private Map<String,ShoppingCartItem>items = new HashMap<>();
@@ -24,7 +23,9 @@ public class ShoppingCart {
 
     public int getTotalBookNumber(){
         int total = 0;
-
+        for (ShoppingCartItem item:items.values()){
+            total+=item.getNumber();
+        }
         return total;
     }
 
@@ -33,6 +34,7 @@ public class ShoppingCart {
         for(ShoppingCartItem item:items.values()){
             money+=item.getNumber()*item.getPrice();
         }
+        return money;
     }
 
 }

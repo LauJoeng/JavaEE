@@ -21,6 +21,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery-1.10.1.js"></script>
     <script type="text/javascript">
         $(function () {
+            alert("aa")
             $(":input[name='username']").change(function () {
                 var val = $(this).val();
                 val = $.trim(val);
