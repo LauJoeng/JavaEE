@@ -1,5 +1,6 @@
 package com.yang.ajaxtest.servlet;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yang.ajaxtest.bean.ShoppingCart;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ public class AddToCartServlet extends HttpServlet{
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         //获取请求参数：id,price
         String bookName = req.getParameter("id");
         int price = Integer.parseInt(req.getParameter("price"));
@@ -34,16 +35,19 @@ public class AddToCartServlet extends HttpServlet{
         cart.addToCart(bookName,price);
         //准备响应的JSON对象
         //如果服务器端返回JSON字符串，则属性名必须使用双引号
-        StringBuilder result = new StringBuilder();
-        result.append("{")
-                .append("\"bookName\":").append("\"").append(bookName).append("\"")
-                .append(",")
-                .append("\"totalBookNumber\":").append(cart.getTotalBookNumber())
-                .append(",")
-                .append("\"totalMoney\":").append(cart.getTotalMoney())
-                .append("}");
+//        StringBuilder result = new StringBuilder();
+//        result.append("{")
+//                .append("\"bookName\":").append("\"").append(bookName).append("\"")
+//                .append(",")
+//                .append("\"totalBookNumber\":").append(cart.getTotalBookNumber())
+//                .append(",")
+//                .append("\"totalMoney\":").append(cart.getTotalMoney())
+//                .append("}");
+        ObjectMapper mapper = new ObjectMapper();
+        String result = mapper.writeValueAsString(cart);
+        System.out.println(result);
         //响应JSON
         resp.setContentType("text/javascript");
-        resp.getWriter().print(result.toString());
+        resp.getWriter().print(result);
     }
 }

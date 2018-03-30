@@ -27,3 +27,23 @@ $.get(url,args,function(data){},"JSON");
 $.post(url,args,function(data){},"JSON");
 
 $.getJSON(url,args,function(data){});
+
+
+第三方Jar包Jackson
+
+步骤:
+
+- 创建org.codehaus.jackson.map.ObjectMapper对象
+- 调用ObjectMapper的writeValueString方法把Java对象或集合转为JSON字符串 
+
+```
+ObjectMapper mapper = new ObjectMapper();
+        //2调用Mapper对象的WriteValueString()方法把一个对象转为JSON字符串
+        Customer customer = new Customer("Yang","1001");
+        String jsonStr = mapper.writeValueAsString(customer);
+        System.out.println(jsonStr);
+```
+
+注意:
+Jackson根据getter方法来定位Json对象的属性，而不是字段！！！
+可以在类的getter方法上添加注解:JsonIgnore。在转为JSON对象时可以忽略该属性
