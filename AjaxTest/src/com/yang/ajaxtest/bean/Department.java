@@ -2,7 +2,7 @@ package com.yang.ajaxtest.bean;
 
 public class Department {
     private Integer departmentId;
-    private String city;
+    private String departmentName;
 
     public Integer getDepartmentId() {
         return departmentId;
@@ -12,11 +12,11 @@ public class Department {
         this.departmentId = departmentId;
     }
 
-    public String getCity() {
-        return city;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 }
