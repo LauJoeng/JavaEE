@@ -11,6 +11,7 @@
 <head>
     <title>Title</title>
     <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery.blockUI.js"></script>
     <script type="text/javascript">
 
         /*
@@ -25,6 +26,16 @@
         * 5.2：若返回数组中元素不为0，遍历，创建<option value="departmentId">departmentName</option>,并把新创建
         * 的option节点加为#department的子结点*/
         $(function () {
+            $(document).ajaxStart(function () {
+                $.blockUI({
+                    message: $('#loading'),
+                    css: {
+                        top:  ($(window).height() - 400) /2 + 'px',
+                        left: ($(window).width() - 400) /2 + 'px',
+                        width: '400px'
+                    }
+                });
+            }).ajaxStop($.unblockUI);
             $("#city").change(function () {
                 $("#department option:not(:first)").remove();
                 var city = $(this).val();
