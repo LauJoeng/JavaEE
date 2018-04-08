@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.yang.aoptest.ArithmeticCalculator"/>
 <fullyQualifiedTypeName name="com.yang.aop.impl.ArithmeticCalculator"/>
 <fullyQualifiedTypeName name="com.yang.aoptest2.ArithmeticCalculator"/>
 <fullyQualifiedTypeName name="org.aspectj.lang.annotation.After"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="javax.servlet.annotation.WebListener"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContextListener"/>
 <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="com.example.spring.struts2.service.PersonService"/>
 </qualifiedTypeNameHistroy>

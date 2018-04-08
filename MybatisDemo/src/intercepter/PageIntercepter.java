@@ -2,11 +2,7 @@ package intercepter;
 
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.plugin.*;
-import org.omg.CORBA.*;
-import org.omg.CORBA.Object;
 
-
-import java.lang.annotation.Target;
 import java.sql.Connection;
 import java.util.Properties;
 
