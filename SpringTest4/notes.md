@@ -13,4 +13,8 @@ Spring整合hibernate
 - 实际编写代码
 
 
+
 **测试中坑：用hibernate执行hql语句时select 后面跟的是类名，不是表名，是类名，不是表名，是类名不是表名!**
+
+注意整合过程中要添加c3p0的一个额外jar包
+mchange-commons-java-0.2.11.jar
